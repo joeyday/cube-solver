@@ -2,9 +2,9 @@ import { Solver } from './solver.mjs'
 import Cube from 'cubejs'
 Cube.initSolver()
 
-let solver = Solver(new Cube(), 2, 3)
+let solver = Solver(new Cube(), 1, 4)
 
-let scrambles = Array.from({ length: 1 }, () => getScramble())
+let scrambles = Array.from({ length: 3 }, () => getScramble())
 
 // let scrambles = [
 //     "R' U' F L2 D2 B' U' D2 L' B2 L' R2 D2 R' B' D2 R2 F' U R' B' R' U' F",
@@ -37,8 +37,6 @@ scrambles.forEach((scramble) => {
         let totalCount = 0
         const padLength = Math.max(...skeleton.map(s => s.length));
 
-        console.log(JSON.stringify(skeleton, null, 2))
-        
         fancySkeleton = skeleton.map((alg, i) => {
             let count = (alg ? alg.split(' ').length : 0)
             totalCount += count
